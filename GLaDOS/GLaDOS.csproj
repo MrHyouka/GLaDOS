@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBB59365-B1E2-400E-BA1D-0D6E36D8ABE7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GLaDOS</RootNamespace>
+    <AssemblyName>GLaDOS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\robot_blue.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.0.0.15, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.110.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\Entity\UserGroup.cs" />
+    <Compile Include="BLL\Public\GlobalInformation.cs" />
+    <Compile Include="BLL\Public\GlobalOption.cs" />
+    <Compile Include="BLL\System\AudioPlayService.cs" />
+    <Compile Include="BLL\System\UserLoginService.cs" />
+    <Compile Include="BLL\System\FunctionMenuService.cs" />
+    <Compile Include="BLL\System\UserService.cs" />
+    <Compile Include="DAL\DBHelper\DBHelper.cs" />
+    <Compile Include="DAL\DBHelper\SQLiteHelper.cs" />
+    <Compile Include="DAL\IDBHelper.cs" />
+    <Compile Include="DAL\DBHelper\MySqlHelper.cs" />
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UIL\BaseForms\BaseForm01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIL\BaseForms\BaseForm01.Designer.cs">
+      <DependentUpon>BaseForm01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIL\Forms\FormDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIL\Forms\FormDemo.Designer.cs">
+      <DependentUpon>FormDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIL\Forms\FormMenuManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIL\Forms\FormMenuManager.Designer.cs">
+      <DependentUpon>FormMenuManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\Entity\User.cs" />
+    <Compile Include="BLL\Entity\Function.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\SQL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQL.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Language.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIL\BaseForms\BaseForm01.resx">
+      <DependentUpon>BaseForm01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIL\Forms\FormDemo.resx">
+      <DependentUpon>FormDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIL\Forms\FormMenuManager.resx">
+      <DependentUpon>FormMenuManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Properties\SQL.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SQL.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="DAL\LoaclDB\GLaDOS.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_32_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_32_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS_Welcome_back_Master_I_have_misse.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_32_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_32_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_32_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\robot.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\robot_blue.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_32_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS_The_quantum_tunnel_will_open_in_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS_Please_dont_do_that.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS_Hello_world.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS_Hello_i_am_glados_a_robot_from_a.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS_As_you_might_know_Your_computer_.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GLaDOS_I_love_you.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_32_darkblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_32_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_32_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down_16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down_32_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_32_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_32_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up_16_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up_32_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_first_32_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_last_32_gray.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.110.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net40\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.110.0\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>
